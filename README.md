@@ -6,6 +6,29 @@ Notes/Observations/Code Samples
 #### Consider static factory instead of constructors
 Design your class to have a public static factory method. This is simply a static method that returns an instance of the class. The static factory method is not related to the factory method described in design patterns. The advantage of static factory methods over constructors is that they have names. When a class seems to require multiple constructors with same signature, replace this with static factory methods. Use a specific method name to highlight the differences. A static factory method doesnt need to construct a new instance everytime, it can choose to return a cached instance. This is similar to Flyweight pattern. Classes that follow the static factory method pattern and return a cached instance are said to be instance-controlled. We get the advantage of a class instance being a singleton or non-instantsiable. Static factory methods can return an object of any subtype of their return type. In Java 8, interfaces can have static methods.
 
+##### Common Method Names
+*from* - type conversion method that takes a parameter and returns an instance of the type. So it basically takes another type and converts into the type requested.
+
+``` Date d = Date.from(instant) ```
+
+*of* - Takes multiple parameters and returns an instance of the type requested
+
+``` Set<Rank> faceCards = EnumSet.of(JACK, QUEEN, KING) ```
+
+*valueOf* - verbose version of *from* and *of*
+
+``` Boolean.valueOf(true) ```
+
+*instance or getInstance* - Returns an instance described by 0 or more parameters. Usually seen in singleton classes
+
+``` SingletonClass.getInstance(options) ```
+
+*create or newInstance* - similar to *instance* but guarantees to return a new object everytime.
+
+``` Object newArray = Array.newInstance(classObject, arrayLen) ```
+
+
+
 TODO: Sample code using static factory methods
 
 #### Use a builder whenever possible
