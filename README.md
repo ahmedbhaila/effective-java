@@ -48,6 +48,10 @@ Another approach to creating a singleton is via the use of enum. TODO: add code.
 
 #### Utility Classes
 Utility classes have static methods but java will add a default constructor to it by default. There is no point in creating an instance of such classes. So provide a private constructor and throw an explicit exception if someone tries to create an object using the private constructor:
+
 ``` private UtilityClass() { throw new AssertionError(); }```
+
+#### Dependency Injection
+
 
 
